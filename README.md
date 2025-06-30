@@ -1,67 +1,90 @@
 # instagram_spammer_detection
 
 live demo -https://instagramspammerdetection.streamlit.app/
-# 📱 Instagram Spammer Detection using Machine Learning
+# 📱 Instagram Spammer Detection 🕵️‍♀️
 
-Hi! I'm Priti, and this is a mini ML project where I built a web app to detect **spam comments** on Instagram. Using basic NLP and a classification model, the app classifies any comment as either a **spammer** or **genuine** — all in real time through a simple Streamlit interface!
+A machine learning project to detect **fake Instagram accounts** using numeric profile features—with a live Streamlit app for real-time testing!
 
 ---
 
 ## 🚀 Live Demo
 
-👉 [Try the Live App on Streamlit](https://your-username.streamlit.app](https://instagramspammerdetection.streamlit.app/)  
+Try the real-time app here:  
+👉 [instagramspammerdetection.streamlit.app](https://instagramspammerdetection.streamlit.app/)
 
 ---
 
-## 💡 About the Project
+## 🧠 About the Project
 
-The goal was to build something that could analyze Instagram-style comments and flag potential spam. This project covers:
+This project identifies whether an Instagram profile is **genuine** or **fake** based on structured numeric data (followers, posts, engagement, etc.). It includes:
 
-- Text preprocessing and vectorization (TF-IDF)
-- Training a classifier to differentiate spam vs. real comments
-- Building an interactive UI using Streamlit
-- Deploying the app live for anyone to test
-
----
-
-## 🔍 Features
-
-- 🚫 Detects if a comment is spam
-- ⚡ Fast real-time predictions
-- 🎯 Simple, clean web UI with instant feedback
-- 🧠 ML model trained from scratch 
+1. **Exploratory Data Analysis** (EDA)  
+2. **Decision Tree classifier** training  
+3. **Model evaluation**: accuracy, confusion matrix, feature importance  
+4. **A Streamlit UI** for interactive input/output  
+5. **Model saving** with `pickle` for deployment
 
 ---
 
-## 🧠 Model Details
+## 🧩 Model Details
 
-- **Vectorizer:** TF-IDF
-- **Classifier Used:** Logistic Regression 
-- **Training Data:** Pre-labeled Instagram comments
-
----
-
-## 🛠 Tools & Technologies
-
-| Tool         | Purpose                      |
-|--------------|------------------------------|
-| Python       | Core programming language     |
-| Scikit-learn | Machine learning pipeline     |
-| Pandas       | Data handling & preprocessing |
-| Streamlit    | Web app framework             |
-| Joblib       | Saving and loading models     |
+- **Vectorizer:** N/A (numeric data only)  
+- **Classifier:** Decision Tree (`sklearn`)  
+- **Saved Model:** `model.pkl` using `pickle`  
+- **Evaluation Metrics:** Accuracy, confusion matrix, classification report  
+- **Feature Importance:** Visualized via barplot
 
 ---
 
-## 🏁 Getting Started Locally
+## 🗂 Project Files
+
+| File                                 | Function                                                 |
+|--------------------------------------|----------------------------------------------------------|
+| `instagram_spammer_detection.ipynb`  | Notebook for EDA and modeling                            |
+| `app.py` or similar                  | Streamlit front-end—loads the model and handles input    |
+| `model.pkl`                          | Saved ML model                                           |
+| `requirements.txt`                   | Python dependencies                                      |
+| `train.csv`, `test.csv`             | Labeled datasets for training and evaluation             |
+
+---
+
+## 🛠 Tech Stack
+
+| Tool         | Purpose                                |
+|--------------|----------------------------------------|
+| Python       | Core language                          |
+| Pandas       | Data processing                        |
+| Seaborn, Matplotlib | Data visualization              |
+| Scikit-learn | Decision Tree model & evaluation       |
+| Pickle       | Model persistence                      |
+| Streamlit    | Web app interface                      |
+
+---
+
+## ⚙️ Running the Project Locally
 
 ```bash
 # Clone the repository
-git clone https://github.com/priti-instagram-spam-detector.git
-cd instagram-spammer-detection
+git clone https://github.com/priti378/instagram_spammer_detection.git
+cd instagram_spammer_detection
+
+# Set up an environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
-# Run the Streamlit app
+# Launch the Jupyter notebook
+jupyter notebook instagram_spammer_detection.ipynb
+
+# Launch the Streamlit app
 streamlit run app.py
+📈 How It Works
+App loads model.pkl
+
+User enters profile metrics (followers, posts, etc.)
+
+Model predicts Genuine or Fake immediately
+
+Output displayed with feature interpretation
